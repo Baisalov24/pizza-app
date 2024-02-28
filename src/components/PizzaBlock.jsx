@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PizzaBlock = ({pizzaName, price}) => {
+const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
   const [addItem, setAddItem] = useState(0);
 
   function addPizza() {
@@ -9,21 +9,22 @@ const PizzaBlock = ({pizzaName, price}) => {
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-        alt="Pizza"
-      />
-      <h4 className="pizza-block__title">{pizzaName}</h4>
+      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+      <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">thin</li>
-          <li>traditional</li>
+          {types.map((item, index) => (
+            <li key={index} className={index === 0 ? "active" : ""}>
+              {item === 0 ? "thin" : "traditional"}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className="active">26 sm.</li>
-          <li>30 sm.</li>
-          <li>40 sm.</li>
+          {sizes.map((item, index) => (
+            <li key={index} className={index === 0 ? "active" : ""}>
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
