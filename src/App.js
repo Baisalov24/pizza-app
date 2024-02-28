@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import PizzaBlock from "./components/PizzaBlock";
-import pizzasData from "./assets/pizzas.json"
+import pizzasData from "./assets/pizzas.json";
 
 function App() {
   return (
@@ -13,23 +13,14 @@ function App() {
         <div className="content">
           <div className="container">
             <div className="content__top">
-              <Categories  />
+              <Categories />
               <Sort />
             </div>
             <h2 className="content__title">All Pizzas</h2>
             <div className="content__items">
-           {pizzasData.map((item, index) => 
-             <PizzaBlock
-             key ={item.id}
-             price = {item.price} 
-             title = {item.title}
-             imageUrl = {item.imageUrl}
-             sizes = {item.sizes}
-             types = {item.types}
-
-             />)} 
-             
-              
+              {pizzasData.map((obj) => (
+                <PizzaBlock key={obj.id} {...obj} />
+              ))}
             </div>
           </div>
         </div>
