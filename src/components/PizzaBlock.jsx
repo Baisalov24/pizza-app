@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
-const PizzaBlock = () => {
+const PizzaBlock = ({pizzaName, price}) => {
+  const [addItem, setAddItem] = useState(0);
+
+  function addPizza() {
+    setAddItem(addItem + 1);
+  }
+
   return (
-    <div class="pizza-block">
+    <div className="pizza-block">
       <img
-        class="pizza-block__image"
+        className="pizza-block__image"
         src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
         alt="Pizza"
       />
-      <h4 class="pizza-block__title">Cheeseburger pizza</h4>
-      <div class="pizza-block__selector">
+      <h4 className="pizza-block__title">{pizzaName}</h4>
+      <div className="pizza-block__selector">
         <ul>
-          <li class="active">thin</li>
+          <li className="active">thin</li>
           <li>traditional</li>
         </ul>
         <ul>
-          <li class="active">26 sm.</li>
+          <li className="active">26 sm.</li>
           <li>30 sm.</li>
           <li>40 sm.</li>
         </ul>
       </div>
-      <div class="pizza-block__bottom">
-        <div class="pizza-block__price"> 15 $</div>
-        <div class="button button--outline button--add">
+      <div className="pizza-block__bottom">
+        <div className="pizza-block__price">{price}$</div>
+        <div
+          className="button button--outline button--add"
+          onClick={() => addPizza()}
+        >
           <svg
             width="12"
             height="12"
@@ -36,7 +45,7 @@ const PizzaBlock = () => {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
+          <i>{addItem}</i>
         </div>
       </div>
     </div>
