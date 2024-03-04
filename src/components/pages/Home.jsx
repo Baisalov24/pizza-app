@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import Categories from "../Categories";
 import Sort from "../Sort";
@@ -16,22 +16,23 @@ const Home = () => {
         setAllData(data);
         setIsLoading(false);
       });
+      window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="content">
-      <div className="container">
-        <div className="content__top">
-          <Categories />
-          <Sort />
-        </div>
-        <h2 className="content__title">All Pizzas</h2>
-        <div className="content__items">
-          {isLoading
-            ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-            : allData.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
-        </div>
+    <>
+    <div className="container">
+      <div className="content__top">
+        <Categories />
+        <Sort />
       </div>
-    </div>
+      <h2 className="content__title">All Pizzas</h2>
+      <div className="content__items">
+        {isLoading
+          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+          : allData.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+      </div>
+      </div>
+    </>
   );
 };
 

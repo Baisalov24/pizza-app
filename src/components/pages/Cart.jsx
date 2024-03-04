@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CartdEmpty = () => {
+const Cart = () => {
   return (
+    <div className="container container-cart">
+
     <div className="cart cart--empty">
       <h2>
       Cart is empty😕
@@ -17,7 +19,8 @@ const CartdEmpty = () => {
         <span>Go Back</span>
       </Link>
     </div>
+    </div>
   );
 };
 
-export default CartdEmpty;
+export default Cart;
