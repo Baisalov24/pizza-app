@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Categories = ({value, onChangeCategory}) => {
-  // const [activeIndex, setActiveIndex] = useState(0);
   let categories = [
     "All pizzas",
     "Meat Lovers Pizza",
@@ -9,10 +8,6 @@ const Categories = ({value, onChangeCategory}) => {
     "BBQ Chicken Pizza",
     "Mushroom Pizza",
   ];
-
-  // function onClickCategory(index) {
-  //   setActiveIndex(index);
-  // }
 
   return (
     <div className="categories">
