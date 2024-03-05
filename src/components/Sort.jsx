@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 
-const Sort = () => {
-
-  const list = ["popular","Price","alphabet"];
-
-  const [selected, setSelected] = useState(0);
+const Sort = ({ value, onChangeSort }) => {
   const [open, setOpen] = useState(false);
 
-  function onClickListItem(index) {
-    setSelected(index);
-    setOpen(!open)
-  }
+  const list = [
+    { name: "popular DESC", sortProperty: "rating" },
+    { name: "popular ASC", sortProperty: "-rating" },
+    { name: "price DESC", sortProperty: "price" },
+    { name: "price ASC", sortProperty: "-price" },
+    { name: "alphabet DESC", sortProperty: "title" },
+    { name: "alphabet ASC", sortProperty: "-title" },
+  ];
 
+  // const [selected, setSelected] = useState(0);
+
+  function onClickListItem(index) {
+    onChangeSort(index);
+    setOpen(false);
+  }
 
   return (
     <div className="sort">
@@ -28,24 +34,26 @@ const Sort = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b style={{cursor: 'pointer'}} onClick={() => setOpen(!open)}>Sort by:</b>
-      <span>{list[selected]}</span>
+        <b style={{ cursor: "pointer" }} onClick={() => setOpen(!open)}>
+          Sort by:
+        </b>
+        <span onClick={() => setOpen(!open)}>{value.name}</span>
       </div>
-      {
-        open && 
+      {open && (
         <div className="sort__popup">
-        <ul>
-          {
-            list.map((item, index) =>
-          <li key = {index} onClick = {() => onClickListItem(index) } className={index === selected ? 'active' : ''}>{item}</li>
-              
-              )
-          }
-        </ul>
-      </div>
-      }
-      
-       
+          <ul>
+            {list.map((obj, index) => (
+              <li
+                key={index}
+                onClick={() => onClickListItem(obj)}
+                className={
+                  value.sortProperty === obj.sortProperty ? "active" : ""}>
+                {obj.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
