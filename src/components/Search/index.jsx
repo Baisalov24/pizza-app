@@ -16,7 +16,7 @@ const onClickClear = () => {
 const updateSearchValue = React.useCallback(
   debounce((str) => {
     setSearchValue(str)
-    console.log(str)
+    // console.log(str)
   }, 350),
   []
 );
