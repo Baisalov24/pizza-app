@@ -84,4 +84,3 @@ const onChangeInput = (event) => {
   );
 };
 
-export default Search;

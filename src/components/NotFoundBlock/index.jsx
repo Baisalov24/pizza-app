@@ -9,6 +9,9 @@ const NotFoundBlock = () => {
         <br />
         Page not found
       </h1>
+      <p className={styles.description}>
+        Unfortunately, this page is not available in our online store.
+      </p>
     </div>
   );
 };
