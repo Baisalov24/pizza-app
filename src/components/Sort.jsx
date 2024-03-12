@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
-import { setSort } from "../redux/filter/slice";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectSort, setSort } from "../redux/slices/filterSlice";
 
 export const sortList = [
   { name: "popular DESC", sortProperty: "rating" },
@@ -11,25 +11,24 @@ export const sortList = [
   { name: "alphabet ASC", sortProperty: "-title" },
 ];
 
-const Sort = () => {
+function Sort() {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
-  const sortRef = useRef();
+  const sort = useSelector(selectSort);
+  const sortRef = React.useRef();
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
-  function onClickListItem(obj) {
+  const onClickListItem = (obj) => {
     dispatch(setSort(obj));
     setOpen(false);
-  }
+  };
 
   React.useEffect(() => {
-    // console.log("Sort mount");
-
+    console.log("Sort mount");
     const handleClickOutside = (event) => {
       if (!event.composedPath().includes(sortRef.current)) {
         setOpen(false);
-        // console.log("click outside");
+        console.log("click outside");
       }
     };
 
@@ -53,17 +52,15 @@ const Sort = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b style={{ cursor: "pointer" }} onClick={() => setOpen(!open)}>
-          Sort by:
-        </b>
+        <b>Sort by:</b>
         <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
           <ul>
-            {sortList.map((obj, index) => (
+            {sortList.map((obj, i) => (
               <li
-                key={index}
+                key={i}
                 onClick={() => onClickListItem(obj)}
                 className={
                   sort.sortProperty === obj.sortProperty ? "active" : ""
@@ -77,6 +74,6 @@ const Sort = () => {
       )}
     </div>
   );
-};
+}
 
 export default Sort;

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Categories = ({value, onChangeCategory}) => {
-  let categories = [
-    "All pizzas",
+function Categories({ value, onChangeCategory }) {
+  const categories = [
+    "All",
     "Meat Lovers Pizza",
     "Veggie Pizza",
     "BBQ Chicken Pizza",
@@ -12,10 +12,11 @@ const Categories = ({value, onChangeCategory}) => {
   return (
     <div className="categories">
       <ul>
-        {categories.map((categoryName, index) => (
-          <li key={index}
-            onClick={() => onChangeCategory(index)}
-            className={value === index ? "active" : ""}
+        {categories.map((categoryName, i) => (
+          <li
+            key={i}
+            onClick={() => onChangeCategory(i)}
+            className={value === i ? "active" : ""}
           >
             {categoryName}
           </li>
@@ -23,6 +24,6 @@ const Categories = ({value, onChangeCategory}) => {
       </ul>
     </div>
   );
-};
+}
 
 export default Categories;

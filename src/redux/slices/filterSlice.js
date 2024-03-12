@@ -6,7 +6,7 @@ const initialState = {
   currentPage: 1,
   sort: {
     name: "popularity",
-    sortProperty: 'rating',
+    sortProperty: "rating",
   },
 };
 
@@ -17,14 +17,14 @@ const filterSlice = createSlice({
     setCategoryId(state, action) {
       state.categoryId = action.payload;
     },
-    setSort(state, action) {
-        state.sort = action.payload;
-      },
-      setCurrentPage(state, action) {
-        state.currentPage = action.payload;
-      },
     setSearchValue(state, action) {
       state.searchValue = action.payload;
+    },
+    setSort(state, action) {
+      state.sort = action.payload;
+    },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
     },
     setFilters(state, action) {
       if (Object.keys(action.payload).length) {
@@ -36,11 +36,15 @@ const filterSlice = createSlice({
         state.categoryId = 0;
         state.sort = {
           name: "popularity",
+          sortProperty: "rating",
         };
       }
     },
   },
 });
+
+export const selectFilter = (state) => state.filter;
+export const selectSort = (state) => state.filter.sort;
 
 export const {
   setCategoryId,
