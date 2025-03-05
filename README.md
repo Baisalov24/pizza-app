@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Pizza Ordering App 🍕
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Pizza Ordering App Screenshot](./src/assets/img/pizza-app.png)  
 
-## Available Scripts
 
-In the project directory, you can run:
+A modern pizza ordering application with product catalog, search, and pagination features.
 
-### `npm start`
+## Features ✨
+- **Pizza Catalog** with pagination (React Paginate)
+- **Search functionality** with debouncing (Lodash.debounce)
+- **Product filtering** by various criteria
+- **Shopping cart management** (Redux Toolkit)
+- **Responsive design** with SCSS styling
+- **API integration** (Axios)
+- **Routing** (React Router 6)
+- **Skeleton loading states** (React Content Loader)
+- **Unit tests** (React Testing Library)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used 🛠️
+- **React 18** - Frontend framework
+- **Redux Toolkit** - State management
+- **React Router 6** - Navigation
+- **Axios** - HTTP client
+- **Sass/SCSS** - Styling
+- **React Paginate** - Pagination component
+- **Lodash.debounce** - Search optimization
+- **QS** - Query string parsing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation 🚀
 
-### `npm test`
+### Prerequisites
+- Node.js (v18+)
+- npm (v9+)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**
+bash
+git clone https://github.com/your-username/pizza-app.git
+cd pizza-app
 
-### `npm run build`
+2. **Install dependencies** 
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start development server**
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Open in browser**
+http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure 📁
 
-### `npm run eject`
+pizza-app/
+├── public/          # Static assets
+├── src/
+│   ├── assets/      # Images & fonts
+│   ├── components/  # Reusable components
+│   ├── features/    # Redux slices
+│   ├── hooks/       # Custom hooks
+│   ├── pages/       # Application views
+│   ├── scss/        # Global styles
+│   ├── services/    # API services
+│   ├── App.jsx      # Root component
+│   └── store.js     # Redux store
+├── package.json
+└── README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Scripts 📜
+Command	Description
+npm start	Start development server
+npm build	Create production build
+npm test	Run unit tests
+npm eject	Eject from CRA (advanced)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API Integration 🔗
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app requires a backend API for full functionality. Example environment variables:
 
-## Learn More
+- REACT_APP_API_URL=https://your-pizza-api.com
+- REACT_APP_PAGE_LIMIT=4
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Typical endpoints:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GET /pizzas - Get paginated pizza list
 
-### Code Splitting
+GET /pizzas/:id - Get single pizza details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+GET /categories - Get pizza categories
 
-### Analyzing the Bundle Size
+**Styling Guidelines 🎨**
+Uses SCSS modules for component styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Global variables in scss/_variables.scss
 
-### Making a Progressive Web App
+**Breakpoints:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Mobile: < 768px
+Tablet: 768px - 1024px
+Desktop: > 1024px
 
-### Advanced Configuration
+## Deployment 🚢
+1. **Create production build:**
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. **Deploy build/ folder to hosting service:**
 
-### Deployment
+- Vercel
+- Netlify
+- Firebase Hosting
+- GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License 📄
+This project is licensed under the MIT License.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Developer: baisalov24**
+**GitHub: https://github.com/Baisalov24**
